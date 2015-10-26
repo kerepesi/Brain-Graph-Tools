@@ -1,5 +1,5 @@
 ****************************
-***BrainGraphTools Manual***
+***Brain-Graph-Tools Manual***
 ****************************
 
 Copyright by Csaba Kerepesi, 2015
@@ -7,8 +7,8 @@ Copyright by Csaba Kerepesi, 2015
 
 ***LICENCE***
 
-- BrainGraphTools are free software: you may redistribute it and/or modify its under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or any later version.
-- BrainGraphTools are distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details (http://www.gnu.org/licenses/).
+- Brain-Graph-Tools are free software: you may redistribute it and/or modify its under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or any later version.
+- Brain-Graph-Tools are distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details (http://www.gnu.org/licenses/).
 - For any other inquiries send an Email to Csaba Kerepesi: kerepesi@caesar.elte.hu
  
 
@@ -48,17 +48,17 @@ http://arxiv.org/abs/1509.05703v1
 
 Version 1.0:
 
-- download the 6 brain graphs and unzip them
-- create a 6_BrainGraphs directory (mkdir 6_BrainGraphs) and copy the brain graphs to it
-- download all files of the BrainGraphTools and copy them to the directory where the 6_BrainGraphs directory is
+- download the 6 brain graphs and unzip them: http://www.cmtk.org/datasets/homo_sapiens_01.cff
+- copy the brain graphs (graphml files) to the 6_BrainGraphs directory
+- download all the files of the Brain-Graph-Tools and copy them to the directory where the 6_BrainGraphs directory is
 
 - perl RefBrainGraph.pl -MinC 3 -MinStr 0 -StrMerge avg -Out graphml -Project 1.0 > 6_BrainGraphs-RefBrainGraph-C3.graphml
 
 Version 2.0:
 
 - download the partial set, 96 brain graphs from http://braingraph.org/download-pit-group-connectomes/ and unzip them
-- create a 96_BrainGraphs directory (mkdir 96_BrainGraphs) and copy the brain graphs to it
-- download all files of BrainGraphTools and copy them to the directory where the 96_BrainGraphs directory is
+- copy the brain graphs (graphml files) to the 96_BrainGraphs directory
+- download all files of Brain-Graph-Tools and copy them to the directory where the 96_BrainGraphs directory is
 
 - all: perl RefBrainGraph.pl -MinC 48 -MinStr 0 -StrMerge avg -Out graphml -Project 2.0 > 96-all-RefBrainGraph-C48.graphml
 - female: perl RefBrainGraph.pl -MinC 26 -MinStr 0 -StrMerge avg -Out graphml -Project 2.0-F > 52-F-RefBrainGraph-C26.graphml
@@ -69,7 +69,7 @@ Version 2.0:
 
 - download the full set, 392 brain graphs from http://braingraph.org/download-pit-group-connectomes/ and unzip them
 - create a 392_BrainGraphs directory (mkdir 392_BrainGraphs) and copy the brain graphs to it
-- download all files of BrainGraphTools and copy them to the directory where the 392_BrainGraphs directory is
+- download all files of Brain-Graph-Tools and copy them to the directory where the 392_BrainGraphs directory is
 
 Generate input graph list:
 
@@ -90,7 +90,7 @@ Compute brain diversity:
 
 - download the partial set, 96 brain graphs from http://braingraph.org/download-pit-group-connectomes/ and unzip them
 - create a 96_BrainGraphs directory (mkdir 96_BrainGraphs) and copy the brain graphs to it
-- download all files of BrainGraphTools and copy them to the directory where the 96_BrainGraphs directory is
+- download all files of Brain-Graph-Tools and copy them to the directory where the 96_BrainGraphs directory is
 
 Generate input graph list:
 
