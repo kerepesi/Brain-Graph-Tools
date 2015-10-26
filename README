@@ -1,0 +1,108 @@
+****************************
+***BrainGraphTools Manual***
+****************************
+
+Copyright by Csaba Kerepesi, 2015
+
+
+***LICENCE***
+
+- BrainGraphTools are free software: you may redistribute it and/or modify its under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or any later version.
+- BrainGraphTools are distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details (http://www.gnu.org/licenses/).
+- For any other inquiries send an Email to Csaba Kerepesi: kerepesi@caesar.elte.hu
+ 
+
+***CITATION***
+
+- When publishing work that is based on the results from RefBrainGraph.pl please cite:
+
+B. Szalkai, C. Kerepesi, B. Varga, V. Grolmusz 
+The Budapest Reference Connectome Server v2.0 
+Neuroscience Letters, Volume 595, Pages 60–62 (2015). 
+http://dx.doi.org/10.1016/j.neulet.2015.03.071
+
+- When publishing work that is based on the results from BrainDiversity.pl please cite:
+
+C. Kerepesi, B. Szalkai, B. Varga, V. Grolmusz 
+Comparative Connectomics: Mapping the Inter-Individual Variability of Connections within the Regions of the Human Brain 
+arXiv, arXiv:1507.00327 (2015). 
+http://arxiv.org/abs/1507.00327v1
+
+- When publishing work that is based on the results from BrainDiversity.pl please cite:
+
+C. Kerepesi, B. Szalkai, B. Varga, V. Grolmusz 
+Does the Budapest Reference Connectome Server Shed Light to the Development of the Connections of the Human Brain? 
+arXiv, arXiv:1509.05703v1 (2015). 
+http://arxiv.org/abs/1509.05703v1
+
+
+***PREREQUISITES***
+
+- Linux OS
+- Perl v5.14.2 or later 
+- Download the brain graphs from http://braingraph.org/download-pit-group-connectomes/
+- copy 100307_connectome_scale500.graphml file to the directory of RefBrainGraph.pl
+
+
+***BUDAPEST REFERENCE CONNECTOME WORKFLOW***
+
+Version 1.0:
+
+- download the 6 brain graphs and unzip them
+- create a 6_BrainGraphs directory (mkdir 6_BrainGraphs) and copy the brain graphs to it
+- download all files of the BrainGraphTools and copy them to the directory where the 6_BrainGraphs directory is
+
+- perl RefBrainGraph.pl -MinC 3 -MinStr 0 -StrMerge avg -Out graphml -Project 1.0 > 6_BrainGraphs-RefBrainGraph-C3.graphml
+
+Version 2.0:
+
+- download the partial set, 96 brain graphs from http://braingraph.org/download-pit-group-connectomes/ and unzip them
+- create a 96_BrainGraphs directory (mkdir 96_BrainGraphs) and copy the brain graphs to it
+- download all files of BrainGraphTools and copy them to the directory where the 96_BrainGraphs directory is
+
+- all: perl RefBrainGraph.pl -MinC 48 -MinStr 0 -StrMerge avg -Out graphml -Project 2.0 > 96-all-RefBrainGraph-C48.graphml
+- female: perl RefBrainGraph.pl -MinC 26 -MinStr 0 -StrMerge avg -Out graphml -Project 2.0-F > 52-F-RefBrainGraph-C26.graphml
+- male: perl RefBrainGraph.pl -MinC 22 -MinStr 0 -StrMerge avg -Out graphml -Project 2.0-M > 44-M-RefBrainGraph-C22.graphml
+
+
+***BRAIN DIVERSITY WORKFLOW***
+
+- download the full set, 392 brain graphs from http://braingraph.org/download-pit-group-connectomes/ and unzip them
+- create a 392_BrainGraphs directory (mkdir 392_BrainGraphs) and copy the brain graphs to it
+- download all files of BrainGraphTools and copy them to the directory where the 392_BrainGraphs directory is
+
+Generate input graph list:
+
+- cd 392_BrainGraph
+- ls *_connectome_scale500.graphml > ../all_392_scale500.list
+- cd ..
+
+Prefiles:
+
+- perl -w GenPreFile.pl 1 100 all_392_scale500.list 392_BrainGraphs
+ 
+Compute brain diversity:
+
+- perl -w BrainDiversity.pl all_392_scale500.list-GenPreFile-1.csv 392 0 lobes distr_func
+
+
+***BRAIN EVOLUTION WORKFLOW***
+
+- download the partial set, 96 brain graphs from http://braingraph.org/download-pit-group-connectomes/ and unzip them
+- create a 96_BrainGraphs directory (mkdir 96_BrainGraphs) and copy the brain graphs to it
+- download all files of BrainGraphTools and copy them to the directory where the 96_BrainGraphs directory is
+
+Generate input graph list:
+
+- cd 96_BrainGraph
+- ls *_connectome_scale500.graphml > ../all_96_scale500.list
+- cd ..
+
+Prefile:
+
+- perl -w GenPreFile.pl 1 100 all_96_scale500.list 96_BrainGraphs/
+
+Compute brain evolution:
+
+- perl -w BrainEvolution.pl results/all_96_scale500.list-GenPreFile-1.csv 96 1015
+
