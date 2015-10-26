@@ -1,0 +1,41 @@
+ <html>
+  <head>
+    <script type="text/javascript"
+          src="https://www.google.com/jsapi?autoload={
+            'modules':[{
+              'name':'visualization',
+              'version':'1',
+              'packages':['corechart']
+            }]
+          }"></script>
+
+    <script type="text/javascript">
+      google.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+['o','paracentral(notlobe)','insula','temporal','thalamus','all','occipital','frontal','parietal','brainstem','limbic','fusiform(notlobe)','basalganglia'],
+['0.1',0.5775,0.7326,0.7895,0.0000,0.8372,0.7295,0.7755,0.8036,0.0000,0.6930,0.5366,0.1944],
+['0.2',0.8169,0.8760,0.9105,0.0000,0.9192,0.8926,0.8856,0.9057,0.0000,0.8519,0.7909,0.2222],
+['0.3',0.9648,0.9380,0.9586,0.0000,0.9561,0.9574,0.9370,0.9560,0.0000,0.9279,0.9094,0.3611],
+['0.4',0.9859,0.9651,0.9806,0.0000,0.9751,0.9837,0.9644,0.9792,0.0000,0.9664,0.9617,0.4444],
+['0.5',0.9930,0.9884,0.9947,0.0000,0.9859,0.9937,0.9795,0.9911,0.0000,0.9793,0.9930,0.4722],
+['0.6',1.0000,0.9961,0.9994,0.0000,0.9917,0.9984,0.9893,0.9963,0.0000,0.9882,1.0000,0.5000],
+['0.7',1.0000,1.0000,1.0000,0.0000,0.9950,1.0000,0.9946,0.9994,0.0000,0.9901,1.0000,0.6111],
+['0.8',1.0000,1.0000,1.0000,0.0000,0.9973,1.0000,0.9987,1.0000,0.0000,0.9941,1.0000,0.6667],
+['0.9',1.0000,1.0000,1.0000,0.0000,0.9987,1.0000,0.9999,1.0000,1.0000,0.9970,1.0000,0.6944],
+['1',1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000,1.0000],
+       ]);    
+    var options = {
+          title: 'results/all_392_scale500.list-GenPreFile-1.csv-BrainDiversity-392-0-lobes-distr_func.html',
+          legend: { position: 'right' },
+          vAxis: { logScale: false }
+        };
+var chart = new google.visualization.LineChart(document.getElementById('curve_chart')); chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="curve_chart" style="width: 1200px; height: 800px"></div>
+  </body>
+</html> 
